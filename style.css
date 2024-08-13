@@ -141,3 +141,231 @@ nav .login-btn:hover{
         transform: translateY(-6px)  rotate(-45deg);
     }
 }
+
+/* Form Popup */
+.form-popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 720px;
+    opacity: 0;
+    background-color: #fff;
+    pointer-events: none;
+    border: 2px solid black;
+    z-index: 10;
+    transform: translate(-50%, -70%);
+}
+
+/* Open Popup */
+.show-popup .form-popup{
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+    transition: transform 0.3s ease, opacity 0.1s;
+    border-radius: 7px;
+}
+
+/* PopUp Close Icon */
+.form-popup #icon-close{
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    color: #878484;
+    font-size: 1.5rem;
+}
+
+/* After PopUp Background Blur */
+.blur-bg-on-popup{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    pointer-events: none;
+}
+
+.show-popup .blur-bg-on-popup{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Full Form Container */
+.form-popup .form-container{
+    display: flex;
+}
+
+.form-container .form-details{
+    width: 100%;
+    color: #fff;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+/* Form Details Section */
+.login-sec .form-details{
+    padding: 0 4rem;
+    background: url('/images/login-img.jpg') center/cover no-repeat;
+}
+
+.signup-sec .form-details{
+    padding: 0 4rem;
+    background: url('/images/signup-img.jpg') center/cover no-repeat;
+}
+
+/* Form Form-Filling Section */
+.form-container .form-filling{
+    width: 100%;
+    padding: 3.5rem;
+}
+
+.form-container h2{
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Input Field Section */
+form .inp-field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.inp-field input{
+    height: 100%;
+    width: 100%;
+    background: none;
+    outline: none;
+    font-size: 0.9rem;
+    border: 1px solid #717171;
+    border-radius: 3px;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.inp-field input:focus{
+    border: 1px solid #00bcd4;
+}
+
+/* Form Label Section */
+.inp-field label{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #4a4646;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.inp-field input:is(:focus, :valid){
+    padding: 16px 15px 0;
+}
+
+.inp-field input:is(:focus, :valid) ~ label{
+    transform: translateY(-120%);
+    color: #00bcd4;
+    font-size: .7rem;
+}
+
+
+
+/* Form Anchar Tags Section */
+.form-container a{
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.form-container a:hover{
+    text-decoration: underline;
+}
+
+/* Form Forgot & Policy Section */
+form :where(.forgot-pass, .policy-text){
+    display: inline-flex;
+    margin-top: 13px;
+    font-size: 0.95rem;
+}
+
+/* Form Buttons */
+form button{
+    width: 100%;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 0.7rem 0;
+    margin: 1rem 0;
+    font-size: 1rem;
+    border-radius: 4px;
+    background: #00bcd4;
+    pointer-events: auto;
+}
+
+form button:hover{
+    background-color: #0097a7;
+}
+
+.form-filling .link{
+    text-align: center;
+}
+
+.form-popup .signup-sec,
+.form-popup.show-signup .login-sec{
+    display: none;
+}
+
+.form-popup.show-signup .signup-sec{
+    display: flex;
+}
+
+.form-popup.show-signup .input-sec{
+    display: none;
+}
+
+.signup-sec .policy-text{
+    display: flex;
+    align-items: center;
+    font-size: .7rem;
+}
+
+.signup-sec .policy-text input{
+    height: 1.2rem;
+    width: 1.2rem;
+    margin-right: .6rem;
+}
+
+
+/* Responsive Device */
+@media (max-width: 550px){
+    .form-popup{
+        width: 80%;
+    }
+
+    .form-container .form-details{
+        display: none;
+    }
+    .form-container .form-filling{
+        padding: 3rem 2rem;
+    }
+}
+@media(max-width:600px){
+    .form-container .form-filling {
+        padding: 1.5rem;
+    }
+}
+@media (max-width:760px){
+    .form-popup{
+        width: 90%;
+    }
+    .form-container .form-filling {
+        padding: 2.5rem;
+    }
+}
